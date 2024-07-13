@@ -4,19 +4,16 @@ import { shaderingWiggleMaterial } from './MovingLayersShaderMaterial';
 const LAYERS = [
   {
     color: {r: "255", g: "255", b: "0"},  
-    scale: 1.2,
-    position: [0, -5, -5]
+    scale: 1.2
   },
   {
     color: {r: "0", g: "250", b: "15"},  
-    scale:  1.7,
-    position: [0, -5, -15]
+    scale:  1.7
   },
   {
     color: {r: "255", g: "0", b: "0"},  
-    scale:  2,
-    position: [0, -5, -20]
-  },
+    scale:  2
+  }
 ];
 
 export function wrapWithMovingLayer(mesh) {
@@ -24,21 +21,12 @@ export function wrapWithMovingLayer(mesh) {
   const clones = [];
 
   wrapper.position.set(mesh.position.x, mesh.position.y, mesh.position.z)
-  // wrapper.rotation.set(Math.PI / 2, Math.PI, 0);
-  // wrapper.position.set(0, -20, -75);
-
-  const base = mesh.clone();
-  wrapper.add(base);
 
   LAYERS.forEach(layer => {
     const clone = createClone(mesh, layer.color, layer.scale, mesh.position);
     wrapper.add(clone);
     clones.push(clone);
   });
-
-  base.position.set(0, 0, 0);
-  mesh.visible = false;
-  base.visible = false;
 
   return { object: wrapper, layers: clones };
 }
