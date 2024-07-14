@@ -11,6 +11,9 @@ export const randomBlinkingMaterial = (color1, color2, texture) => new THREE.Sha
 		uTime: {
 			value: 0
 		},
+    gridNumber: {
+      value: 10
+    },
     tDiffuse: {
       value: texture
     }
@@ -29,8 +32,7 @@ export const randomBlinkingMaterial = (color1, color2, texture) => new THREE.Sha
     uniform vec3 color2;
     uniform sampler2D tDiffuse;
     uniform float uTime;
-
-    float gridNumber = 10.0;
+    uniform float gridNumber;
 
     float rand(vec2 co)
     {
