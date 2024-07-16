@@ -20,10 +20,10 @@ export function setupScene() {
 
   window.addEventListener('resize', onWindowResize.bind(this, camera, renderer));
 
-  return { camera, scene, renderer };
+  return { camera, scene, renderer, controls };
 }
 
-function onWindowResize(camera) {
+function onWindowResize(camera, renderer) {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);

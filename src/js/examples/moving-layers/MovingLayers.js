@@ -1,5 +1,5 @@
 import WebGL from 'three/addons/capabilities/WebGL.js';
-import { addCube } from "../../tools/AddCube";
+import { addCube } from "../../tools/AddMesh";
 import { setupLight } from "../../tools/SetupLight";
 import { setupScene } from "../../tools/SetupScene";
 import { wrapWithMovingLayer } from "./AddLayers";
