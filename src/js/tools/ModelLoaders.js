@@ -14,7 +14,7 @@ export function setupModelLoaders() {
   return { objLoader, mtlLoader, textureLoader };
 }
 
-export function loadColorTexture(path, textureLoader) {
+export async function loadColorTexture(path, textureLoader, callback) {
   let loader;
   if (!textureLoader) {
     const loadingManager = new THREE.LoadingManager();
@@ -23,7 +23,8 @@ export function loadColorTexture(path, textureLoader) {
     loader = textureLoader;
   }
   
-  const texture = loader.load(path);
+  const texture = await loader.load(path);
   texture.colorSpace = THREE.SRGBColorSpace;
+  callback && callback(texture);
   return texture;
 }

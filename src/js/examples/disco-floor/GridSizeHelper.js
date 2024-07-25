@@ -7,7 +7,7 @@ export const GRID_STEP = 1;
 export function initGridSizeHelper(scene, onChange) {
   const gui = new GUI();
   const helper = new GridSizeHelper();
-  gui.add(helper, 'size', GRID_MIN_SIZE, GRID_MAX_SIZE, GRID_STEP).name('Размер сетки').onChange(onChange);
+  gui.add(helper, 'size', GRID_MIN_SIZE, GRID_MAX_SIZE, GRID_STEP).name('Grid size').onChange(onChange);
   scene.add(gui);
   return { gui, helper };
 }
