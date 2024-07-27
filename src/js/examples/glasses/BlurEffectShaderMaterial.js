@@ -44,9 +44,9 @@ export const blurEffectMaterial = (texture) => new THREE.ShaderMaterial({
       float G = force / 2.0;
       // Distortion factor
       float F = 1.0 * force * force;
-      float aspectRatio = pixelWidth / pixelHeight;
+      float ASPECT_RATIO = pixelWidth / pixelHeight;
       float lensRadius = lens.w;
-      float distanceToLensCenter = distance(vec2(vUv.x, vUv.y / aspectRatio), vec2(lens.x, lens.y / aspectRatio));
+      float distanceToLensCenter = distance(vec2(vUv.x, vUv.y / ASPECT_RATIO), vec2(lens.x, lens.y / ASPECT_RATIO));
 
       if (distanceToLensCenter < lensRadius + 0.01 && distanceToLensCenter > lensRadius - 0.01) {
         gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
