@@ -6,7 +6,7 @@ For start:
   npm i,
   npm run build:dev
 
-  
+
 ![Alt text](image.png)
 
 Examples:
